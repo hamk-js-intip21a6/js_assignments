@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lomake</title>
+    <script>
+         function show(event) {
+            let nametext = document.getElementById("id_name").value
+            let messagetext = document.getElementById("id_message").value;
+            let bday = document.getElementById("id_birthday").value;
+
+            document.getElementById(
+                "id_result"
+            ).innerText = `Result: \n Full name: ${nametext} \n Message: ${messagetext} \n Birth date: ${bday}`;
+        }
+       
+    </script>
+</head>
+
+<body>
+    <form>
+        <label for="id_name">Full name</label>
+        <input type="text" id="id_name" size="30" autofocus placeholder="First Name Last Name" required>
+        <br>
+        <label for="id_password">Password</label>
+        <input type="text" id="id_password" size="20" pattern="^[\w,.\-:;?!]{8,20}$" required>
+        <br>
+        <label for="id_password_again">Password repeated</label>
+        <input type="text" id="id_password_again" size="20" pattern="^[\w,.\-:;?!]{8,20}$" required>
+        <br>
+        <fieldset required><legend>Gender</legend>
+            <input type="radio" name="gender" value="m" id="id_male"><label for="id_male">male</label>
+            <input type="radio" name="gender" value="f" id="id_female"><label for="id_female">female</label>
+            <input type="radio" name="gender" value="o" id="id_other"><label for="id_other">other</label>
+        </fieldset>
+        <br>
+        <label for="id_tv"><input type="checkbox" name="hobby" id="id_tv" value="TV" /> TV</label>
+        <label for="id_music"><input type="checkbox" name="hobby" id="id_music" value="music" /> Music</label>
+        <label for="id_games"><input type="checkbox" name="hobby" id="id_games" value="games" /> Games</label>
+        <label for="id_sports"><input type="checkbox" name="hobby" id="id_sports" value="sports" /> Sports</label>
+        <br>
+        <label for="id_birthday">Birthday</label>
+        <input type="datetime-local" id="id_birthday">
+
+
+        <br>
+        <label for="id_height">Height</label>
+        <input type="range" name ="height" id="id_height" min="40" max="300" value="150" step="1" oninput="id_height_output.value = this.value">
+        <input type="number" id="id_height_output" min="40" max="300" value="150" step="1" oninput="id_height.value = this.value">
+        <br>
+        <label for="id_fav_color">Favourite Color</label>
+        <input type="color" id="id_fav_color">
+        <br>
+        <label for="id_country">Home Country:</label>
+        <select name="Country" id="id_country">
+            <option value="fi" selected>Finland</option>
+            <option value="ru">Russia</option>
+            <optgroup label="Scandinavia">
+                <option value="de">Denmark</option>
+                <option value="no">Norway</option>
+                <option value="sv">Sweden</option>
+            </optgroup>
+            <optgroup label="Baltic">
+                <option value="es">Estonia</option>
+                <option value="lv">Latvia</option>
+                <option value="lt">Lithuania</option>
+            </optgroup>
+        </select>
+        <br>
+        <label for="id_profession">Profession:</label>
+        <input list="professions" id="id_profession" size="20">
+        <datalist id="id_professions">
+            <option value="pilot"></option>
+            <option value="astronaut"></option>
+            <option value="firefighter"></option>
+            <option value="engineer"></option>
+        </datalist>
+        <br>
+        <label for="id_message">Message:</label><br>
+        <textarea name="message" id="id_message" rows="6" cols="60" maxlength="1000" placeholder="Type here your message. Max 1000 characters." required></textarea>
+        <br>
+        <input type="button" value="Submit" onClick="show(event)">
+        <hr>
+        <output id="id_result">Result:</output>
+    </form>
+</body>
+
+</html>
